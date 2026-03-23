@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+:root {
+    --accent-color: #f5d142;
+    --hover-color: #ffef8a;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Fundo animado com gradiente e imagens */
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Bangers', cursive;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+
+    background: linear-gradient(
+        270deg,
+        #f4d03f,
+        #8e5a2b,
+        #000000,
+        #f4d03f
+    );
+    background-size: 800% 800%;
+    animation: jojoBg 10s ease infinite;
+
+    position: relative;
+}
+
+/* Animação do gradiente */
+@keyframes jojoBg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Imagens dos personagens (Johnny e Gyro) */
+body::before,
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 40%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    opacity: 0.15;
+    z-index: 0;
+    transition: opacity 1s ease;
+}
+
+body::before {
+    left: 0;
+    width: 2034;
+    background-image: url('https://makerworld.bblmw.com/makerworld/model/USba5bd36e5f82b5/design/2024-02-23_0d6f7bda5927a.jpg?x-oss-process=image/resize,w_1000/format,webp');
+}
+
+body::after {
+
+    right: 0;
+    background-image: url('https://preview.redd.it/i-swear-to-god-that-gyros-grills-said-gyro-zeppeli-v0-kj1nkr93u7pc1.png?auto=webp&s=a3ec60f525d7d393fab8154c77ee1bce7779fe7b');
+}
+
+/* Efeito de brilho suave nas imagens */
+body:hover::before,
+body:hover::after {
+    opacity: 0.25;
+}
+
+/* Conteúdo principal acima das imagens */
+h1, h2, form, table, p {
+    position: relative;
+    z-index: 1;
+}
+
+/* Título principal */
+h1 {
+    font-size: 3.5em;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 0 #000, 5px 5px 10px var(--shadow-color);
+    margin-top: 40px;
+    color: var(--accent-color);
+}
+
+/* Texto japonês */
+.jojo-text {
+    font-size: 2em;
+    color: var(--hover-color);
+    text-shadow: 2px 2px 5px #000;
+    animation: jojoPulse 1.5s infinite alternate;
+}
+
+@keyframes jojoPulse {
+    from { transform: scale(1); opacity: 0.8; }
+    to { transform: scale(1.2); opacity: 1; }
+}
+
+/* Formulário */
+form {
+    background: rgba(0, 0, 0, 0.6);
+    display: inline-block;
+    padding: 20px 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px var(--shadow-color);
+    margin: 30px auto;
+    transition: transform 0.3s ease;
+}
+
+form:hover {
+    transform: scale(1.03);
+}
+
+label {
+    font-size: 1.2em;
+    color: var(--hover-color);
+}
+
+input {
+    width: 250px;
+    padding: 8px;
+    margin-top: 5px;
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-family: 'Bangers', cursive;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--hover-color);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Botão */
+button {
+    background: var(--accent-color);
+    color: #000;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px var(--shadow-color);
+}
+
+button:hover {
+    background: var(--hover-color);
+    transform: scale(1.1);
+}
+
+/* Tabela */
+table {
+    margin: 40px auto;
+    border-collapse: collapse;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px var(--shadow-color);
+    width: 90%;
+    max-width: 900px;
+}
+
+th, td {
+    padding: 12px 15px;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+th {
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--accent-color);
+    font-size: 1.2em;
+}
+
+td {
+    color: white;
+    font-size: 1em;
+}
+
+tr:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transition: background 0.3s ease;
+}
+
+/* Links */
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--hover-color);
+    text-shadow: 0 0 5px var(--hover-color);
+}
+
+/* Rodapé da tabela */
+tfoot td {
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--hover-color);
+    font-size: 1.1em;
+}
+
+/* Efeito de brilho no subtítulo */
+@keyframes shine {
+    0% { text-shadow: 0 0 5px var(--accent-color); }
+    50% { text-shadow: 0 0 20px var(--hover-color); }
+    100% { text-shadow: 0 0 5px var(--accent-color); }
+}
+
+h2 {
+    color: var(--hover-color);
+    text-shadow: 2px 2px 5px #000;
+    animation: shine 3s infinite ease-in-out;
+}

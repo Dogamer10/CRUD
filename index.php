@@ -1,31 +1,11 @@
 <?php
 
-/**
- * Inclui o arquivo de conexão com o banco de dados.
- *
- * __DIR__ retorna o diretório atual do arquivo,
- * o que evita problemas de caminho relativo.
- */
 require __DIR__ . "/connect.php";
 
-/**
- * Obtém a instância da conexão com o banco.
- * Esse método foi definido na classe Connect.
- */
 $pdo = Connect::getInstance();
 
-/**
- * Executa uma consulta SQL para buscar todos os usuários
- * da tabela "users", ordenando pelo campo "id" em ordem crescente.
- *
- * query() é usado quando não há parâmetros dinâmicos.
- */
 $stmt = $pdo->query("SELECT * FROM users ORDER BY id ASC");
 
-/**
- * fetchAll() busca todos os registros retornados pela consulta
- * e os armazena em um array.
- */
 $users = $stmt->fetchAll();
 
 ?>
@@ -34,25 +14,22 @@ $users = $stmt->fetchAll();
 <html lang="pt-br">
 
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+    href="style.css">
     <meta charset="UTF-8">
     <title>CRUD PHP</title>
 </head>
 
 <body>
 
-    <h1>Cadastro de Alunos</h1>
+    <h1>Registro Steel Ball Run</h1>
+    <p class="jojo-text">ゴゴゴゴゴゴゴ</p>
 
-    <!--
-        Formulário responsável por enviar os dados
-        para o arquivo store.php, que fará o cadastro no banco.
-        
-        method="post" é usado para envio de dados de formulário
-        de forma mais apropriada e segura do que GET.
-    -->
     <form action="store.php" method="post">
         <p>
             <label>Nome:</label><br>
-            <input type="text" name="nomecompleto" required>
+            <input type="text" name="name" required>
         </p>
 
         <p>
@@ -68,7 +45,7 @@ $users = $stmt->fetchAll();
         <button type="submit">Cadastrar</button>
     </form>
 
-    <hr>
+    
 
     <h2>Lista de alunos</h2>
 
